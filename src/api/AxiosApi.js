@@ -7,7 +7,7 @@ const AxiosApi = {
     console.log("패스워드 : ", pw);
     const login = {
       email: email,
-      pwd: pw,
+      password: pw,
     };
     return await axios.post(KH_DOMAIN + "/auth/login", login);
   },
@@ -17,7 +17,7 @@ const AxiosApi = {
   signup: async (email, pwd, name) => {
     const member = {
       email: email,
-      pwd: pwd,
+      password: pwd,
       name: name,
     };
     return await axios.post(KH_DOMAIN + `/auth/signup`, member);
