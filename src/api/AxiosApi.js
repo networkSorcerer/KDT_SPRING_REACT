@@ -22,6 +22,10 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + `/auth/signup`, member);
   },
+  // 전체 회원 조회
+  memberList: async () => {
+    return await axios.get(KH_DOMAIN + "/members");
+  },
 };
 
 export default AxiosApi;
