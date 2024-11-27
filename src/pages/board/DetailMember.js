@@ -15,7 +15,13 @@ const DetailMember = () => {
 
   const Update = () => {
     const param = theMember[0];
-    axios.post(`${KH_DOMAIN}/home/update`, param);
+    axios.post(`${KH_DOMAIN}/home/update`, param).then((res) => {
+      if (res.data === true) {
+        alert("수정에 성공했습니다.");
+      } else {
+        alert("수정에 실패하였습니다.");
+      }
+    });
   };
   useEffect(() => {
     TheMember(email);
