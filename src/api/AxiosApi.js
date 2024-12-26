@@ -35,6 +35,14 @@ const AxiosApi = {
   chatList: async () => {
     return await axios.get(KH_DOMAIN + "/chat/list");
   },
+  // 채팅방 생성하기
+  chatCreate: async (email, name) => {
+    const chat = {
+      email: email,
+      name: name,
+    };
+    return await axios.post(KH_DOMAIN + "/chat/new", chat);
+  },
 };
 
 export default AxiosApi;

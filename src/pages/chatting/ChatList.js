@@ -3,6 +3,7 @@ import React from "react";
 import AxiosApi from "../../api/AxiosApi";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { Room } from "@material-ui/icons";
 
 const ChatListContainer = styled.div`
   padding: 30px;
@@ -107,7 +108,29 @@ const ChatList = () => {
   }, []); // 처음 화면이 나타나는 시점에 서버로 부터 정보를 가져 옴
 
   // 채팅방 이동
-  return <></>;
+  const enterChatRoom = (roomId) => {
+    navigate(`/chatting/${roomId}`);
+  };
+
+  // 채팅방 생성
+  const createChatRoom = () => {
+    navigate("/chat-create");
+  };
+  return (
+    <>
+      <ChatListContainer>
+        <Header>채팅방 목록</Header>
+        <ChatUl>
+          {chatRooms.map((room) => (
+            <ChatRoom key={room.roomId} onClick={enterChatRoom(room.roomId)}>
+              <p>{room.regDate}</p>
+            </ChatRoom>
+          ))}
+        </ChatUl>
+        <CircleFixedButton onClick={createChatRoom}></CircleFixedButton>
+      </ChatListContainer>
+    </>
+  );
 };
 
 export default ChatList;

@@ -19,11 +19,11 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route element={<Layout />}>
-              <Route path="/home" element={<Home />} />
+              <Route path="/home" element={<Home1 />} />
+              <Route path="/chat" element={<ChatList />} />
             </Route>
             <Route path="/home/list/:email" element={<DetailMember />} />
-            <Route path="/home1" element={<Home1 />} />
-            <Route path="/chat" element={<ChatList />} />
+            <Route path="/home1" element={<Home />} />
           </Routes>
         </Router>
       </UserStore>
