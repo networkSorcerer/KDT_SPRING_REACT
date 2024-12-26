@@ -90,5 +90,24 @@ const ChatList = () => {
 
   useEffect(() => {
     // 서버로 부터 채팅방 목록을 가져오는 API
+    const getChatRoom = async () => {
+      try {
+        const response = await AxiosApi.chatList();
+        console.log(response.data);
+        setChatRooms(response.data);
+      } catch (e) {
+        console.log(e); // 서버와의 통신 실패에 대한 예외 처리
+      }
+    };
+    // 1초마다 채팅방 목록을 갱신하기 위한 Interval 함수 생성
+    const intervalID = setInterval(getChatRoom, 1000);
+    return () => {
+      clearInterval(intervalID);
+    };
   }, []); // 처음 화면이 나타나는 시점에 서버로 부터 정보를 가져 옴
+
+  // 채팅방 이동
+  return <></>;
 };
+
+export default ChatList;
