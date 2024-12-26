@@ -42,3 +42,42 @@ const Button = styled.button`
     background-color: #45a049;
   }
 `;
+
+const ChatRoomCreate = () => {
+  const [chatRoomTitle, setChatRoomTitle] = useState("");
+  const navigate = useNavigate();
+  const email = localStorage.getItem("email");
+
+  // 채팅방 개설을 위한 axios 호출
+  const handleCreateChatRoom = async () => {
+    try {
+      const response = await AxiosApi.chatCreate(email, chatRoomTitle);
+      console.log(response.data);
+      navigate(`/chatting/${response.data}`);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  // 채팅방 개설 취소
+  const handleCancel = () => {
+    navigate(-1); // 이전 페이지로 이동하기 위해서  스택을 pop함
+  };
+  return (
+    <>
+      <Container>
+        <Title>채팅방 생성</Title>
+        <Input
+          type="text"
+          value={chatRoomTitle}
+          onChange={(e) => setChatRoomTitle(e.target.value)}
+        />
+        <ButtonContainer>
+          <Button onClick={handleCreateChatRoom}>확인</Button>
+          <Button onClick={handleCancel}>취소</Button>
+        </ButtonContainer>
+      </Container>
+    </>
+  );
+};
+
+export default ChatRoomCreate;

@@ -46,7 +46,7 @@ const Layout = () => {
     getMemberInfo();
   }, []);
   return (
-    <Container color={color}>
+    <Container color="skyblue">
       <header className="head">
         <div onClick={toggleMenu}>
           {isMenuOpen ? (

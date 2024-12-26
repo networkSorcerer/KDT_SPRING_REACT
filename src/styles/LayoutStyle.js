@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const defaultBackgroundColor = "#f9aa06";
+const defaultBackgroundColor = "blue";
 const sideMenuBackgroundColor = "#eee";
 const topbarHeight = "54px";
 

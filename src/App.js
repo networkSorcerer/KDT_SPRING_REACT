@@ -9,6 +9,7 @@ import DetailMember from "./pages/board/DetailMember";
 import Home1 from "./pages/Home";
 import Layout from "./pages/Layout";
 import ChatList from "./pages/chatting/ChatList";
+import ChatRoomCreate from "./pages/chatting/ChatRoomCreate";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/home" element={<Home1 />} />
               <Route path="/chat" element={<ChatList />} />
+              <Route path="/chat-create" element={<ChatRoomCreate />} />
             </Route>
             <Route path="/home/list/:email" element={<DetailMember />} />
             <Route path="/home1" element={<Home />} />

@@ -122,7 +122,11 @@ const ChatList = () => {
         <Header>채팅방 목록</Header>
         <ChatUl>
           {chatRooms.map((room) => (
-            <ChatRoom key={room.roomId} onClick={enterChatRoom(room.roomId)}>
+            <ChatRoom
+              key={room.roomId}
+              onClick={() => enterChatRoom(room.roomId)}
+            >
+              <p>{room.name}</p>
               <p>{room.regDate}</p>
             </ChatRoom>
           ))}
