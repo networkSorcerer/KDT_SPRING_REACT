@@ -7,7 +7,7 @@ const AxiosApi = {
     console.log("패스워드 : ", pw);
     const login = {
       email: email,
-      password: pw,
+      pwd: pw,
     };
     return await axios.post(KH_DOMAIN + "/auth/login", login);
   },
@@ -17,14 +17,19 @@ const AxiosApi = {
   signup: async (email, pwd, name) => {
     const member = {
       email: email,
-      password: pwd,
+      pwd: pwd,
       name: name,
+      imgPath: "",
     };
     return await axios.post(KH_DOMAIN + `/auth/signup`, member);
   },
   // 전체 회원 조회
   memberList: async () => {
-    return await axios.get(KH_DOMAIN + "/members");
+    return await axios.get(KH_DOMAIN + "/member/list");
+  },
+  //개별 회원 조회
+  memberInfo: async (email) => {
+    return await axios.get(KH_DOMAIN + `/member/${email}`);
   },
 };
 

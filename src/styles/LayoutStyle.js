@@ -12,8 +12,10 @@ export const Container = styled.div`
   width: 100%;
   margin: auto;
   background-color: ${(props) => props.color || defaultBackgroundColor};
-  .mainhead {
+  .head {
     display: flex;
+    height: ${topbarHeight};
+    width: 100%;
     justify-content: space-between;
     position: fixed;
     z-index: 1;
@@ -23,6 +25,7 @@ export const Container = styled.div`
   }
   .body {
     height: calc(100vh - ${topbarHeight} - 50px);
+    margin-top: ${topbarHeight};
   }
   .footer {
     text-align: center;

@@ -41,6 +41,8 @@ const Login = () => {
   const onClickLogin = async () => {
     try {
       const rsp = await AxiosApi.login(inputEmail, inputPw);
+      localStorage.setItem("email", inputEmail);
+      localStorage.setItem("isLogin", "TRUE");
       console.log(rsp.data);
       if (rsp.data) {
         navigate("/home");
