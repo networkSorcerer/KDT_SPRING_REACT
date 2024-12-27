@@ -43,6 +43,9 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + "/chat/new", chat);
   },
+  chatDetail: async (roomId) => {
+    return await axios.get(KH_DOMAIN + `/chat/room/${roomId}`);
+  },
 };
 
 export default AxiosApi;
